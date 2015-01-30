@@ -1,7 +1,7 @@
 global _ft_cat
 
 section .bss
-buffer:         db 256
+buffer:         resb 256
 
 section .text
 _ft_cat:
@@ -14,7 +14,7 @@ read:
     mov         rax, 0x2000003
     syscall
     cmp         rdx, 256
-    jz          done
+    jz          error
     cmp         rax, 0
     jz          done
 
@@ -25,6 +25,9 @@ write:
     mov         rax, 0x2000004
     syscall
     jnz         read
+
+error:
+    mov         rax, -1
 
 done:
     ret
