@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <libc.h>
-#include "test.h"
+#include "libft.h"
 
 int main()
 {
